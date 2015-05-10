@@ -1,0 +1,4 @@
+#!/bin/sh
+
+docker build -t "jensfischerhh/revo-tvheadend:0.0.1" `dirname "$0"`
+
