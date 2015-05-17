@@ -7,10 +7,12 @@ This project was inspired by rothgar/docker-tvheadend on GitHub.
 
 ## Build
 
-	docker build -t "jensfischerhh/revo-tvheadend:0.0.1" .
+	docker build -t "jensfischerhh/revo-tvheadend" .
 
 ## Run
 
-    docker run -d --name=tvheadend -p 9981:9981 -p 9982:9982 -v ${pwd}/config:/config -v ${pwd}/recordings:/recordings jensfischerhh/revo-tvheadend:0.0.1
+    docker run -d --name=tvheadend -p 9981:9981 -p 9982:9982 -v ${pwd}/config:/config -v ${pwd}/recordings:/recordings jensfischerhh/revo-tvheadend
 
-    docker run -it --rm=true --name=tvheadend --privileged --device=/dev/bus/usb/001/001 --device=/dev/bus/usb/001/002 -p 9981:9981 -p 9982:9982 -v ${pwd}/config:/config -v ${pwd}/recordings:/recordings jensfischerhh/revo-tvheadend:0.0.1 /bin/bash
+    docker run -it --rm=true --name=tvheadend --device=/dev/bus/usb/001/004 -p 9981:9981 -p 9982:9982 -v ${pwd}/config:/config -v ${pwd}/recordings:/recordings jensfischerhh/revo-tvheadend /bin/bash
+
+    docker run -d --name=tvheadend --privileged -p 9981:9981 -p 9982:9982 -v /dev/bus/usb:/dev/bus/usb -v /var/local/tvheadend/config:/config -v /var/local/tvheadend/recordings:/recordings jensfischerhh/revo-tvheadend
