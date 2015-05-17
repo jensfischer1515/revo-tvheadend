@@ -11,7 +11,7 @@ RUN apt-get install -y curl software-properties-common
 RUN curl --insecure http://apt.tvheadend.org/repo.gpg.key | apt-key add -
 
 # stable, beta or unstable
-ENV TVHEADEND_REPO stable
+ENV TVHEADEND_REPO beta
 
 # Add tvheadend repo
 RUN apt-add-repository http://apt.tvheadend.org/${TVHEADEND_REPO}
