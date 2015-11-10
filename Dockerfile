@@ -27,16 +27,28 @@ RUN apt-get install -m -y \
     debconf \
     debconf-utils \
     usbutils \
-    linux-firmware-nonfree 
+    linux-firmware-nonfree
 
-#RUN echo "set tvheadend/admin_username admin" | debconf-communicate 
-#RUN echo "set tvheadend/admin_password admin" | debconf-communicate 
+#RUN echo "set tvheadend/admin_username admin" | debconf-communicate
+#RUN echo "set tvheadend/admin_password admin" | debconf-communicate
+
+# Install video tools (https://wiki.ubuntuusers.de/Libav)
+RUN apt-get install -m -y \
+    libav-tools \
+    libavcodec-extra-54 \
+    libavdevice-extra-53 \
+    libavformat-extra-54 \
+    libavutil-extra-52 \
+    libswscale-extra-2
 
 # Install tvheadend
-RUN apt-get install -m -y --force-yes tvheadend 
+RUN apt-get install -m -y --force-yes tvheadend
 
 # clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ADD mkv2mp4.sh /usr/local/bin/mkv2mp4.sh
+RUN /bin/chmod a+x /usr/local/bin/mkv2mp4.sh
 
 EXPOSE 9981 9982
 

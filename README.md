@@ -1,6 +1,6 @@
 # Docker Container for TVHeadend
 
-Running TVHeadend inside Docker on my dedicated Linux server "Revo". 
+Running TVHeadend inside Docker on my dedicated Linux server "Revo".
 It is tailored to my specific network and hardware configuration.
 
 This project was inspired by rothgar/docker-tvheadend on GitHub.
