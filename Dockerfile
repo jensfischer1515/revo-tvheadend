@@ -47,11 +47,11 @@ RUN apt-get install -m -y --force-yes tvheadend
 # clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD mkv2mp4.sh /usr/local/bin/mkv2mp4.sh
+ADD mkv2mp4.sh /usr/local/bin/
 RUN /bin/chmod a+x /usr/local/bin/mkv2mp4.sh
 
 EXPOSE 9981 9982
 
 VOLUME /config /recordings /data
 
-CMD ["/usr/bin/tvheadend","-C","-u","hts","-g","hts","-c","/config"]
+CMD ["/usr/bin/tvheadend","-C","-u","root","-g","root","-c","/config"]

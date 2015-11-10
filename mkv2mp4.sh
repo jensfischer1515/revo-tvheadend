@@ -1,7 +1,8 @@
 #!/bin/sh
 
 MKV=$1
-MP4=$(echo ${MKV} | /bin/sed 's/.mkv$/.mp4/g')
+#MP4=$(echo ${MKV} | /bin/sed 's/.mkv$/.mp4/g')
+MP4=${MKV}.mp4
 
 # flush buffers to disk
 /bin/sync
